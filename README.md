@@ -1,63 +1,66 @@
 # Python API Homework - What's the Weather Like?
 
-## Background
+# Part I - WeatherPy
+## WeatherPy Analysis Summary
+This analysis was performed in February 2021, using the OpenWeatherMap API.
 
-Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. So let's take what you've learned about Python requests, APIs, and JSON traversals to answer a fundamental question: "What's the weather like as we approach the equator?"
+  
+  * Temperatures are the warmest in the cities closest to the equator, with the southern hemisphere being warmer than the northern hemisphere. This may be due to the northern hemisphere having more landmass.
+  * The northern hemisphere tends to be more humid than the southern.
+  * There is generally no relationsship location compared with cloud cover (cloudiness) and wind speed. This is verified in the regression analyses.
 
-Now, we know what you may be thinking: _"Duh. It gets hotter..."_
+## Overview
+Develop a Python script to visualize the weather of 500+ randomly chosen cities across the world, at varying distances from the equator. Starter code with a [simple Python library](https://pypi.python.org/pypi/citipy) and the [OpenWeatherMap API](https://openweathermap.org/api) was provided.
 
-But, if pressed, how would you **prove** it?
+* Out of the 617 randomly chosen cities, only 579 were used in the analysis. The remaining were eliminated due to incomplete data.
 
-![Equator](Images/equatorsign.png)
+## Scatter plots to show any relationships
 
-### Before You Begin
+<img src="Images/LatTemp.png" alt="Temp vs Latitude">
+Temperature vs. Latitude is generally showing that the maximum temperatures are the highest closest to the equator (0). The farther north, the maximum temperatures get colder.
 
-1. Create a new repository for this project called `python-api-challenge`. **Do not add this homework to an existing repository**.
+<img src="Images/LatHum.png" alt="Humidity vs Latitude">
+Humidity vs. Latitude is generally showing that humidity levels (100% or less) greatly vary across the globe, though higher humidity levels are the majority (greater than 60%). The northern hemisphere tends to be more humid than the southern.
 
-1. Clone the new repository to your computer.
+<img src="Images/LatCloud.png" alt="Cloud Cover vs Latitude">
+Cloud Cover vs. Latitude (cloudiness) is generally showing no relationship between cloud cover and location.
 
-1. Inside your local git repository, create a directory for each of the Python Challenges: `WeatherPy` and `VacationPy`.
+<img src="Images/LatWind.png" alt="Wind Speed vs Latitude">
+Wind Speed  vs. Latitude is generally showing no relationship between wind speed and location.
 
-1. Create a Jupyter notebook called `WeatherPy.ipynb` and save it in the `WeatherPy` folder. 
+<br />
+<br />
 
-1. Create a Jupyter notebook called `VacationPy` and save it in the `VacationPy` folder. 
+Linear regression on each relationship for the northern and summer hemispheres were performed. The northern hemisphere was defined as greater than or equal to 0 degrees latitude, and southern hemisphere was defined asless than 0 degrees latitude.
 
-1. Push the above changes to GitHub and then begin your work. 
+<img src="Images/NTemp.png" alt="Northern Hemispere Temperature vs Latitude">
+Northern Hemisphere: Temperature vs. Latitude regression is showing the closer to the equator the warmer the temperature. The r-squared value of 0.76, this is the highest of the coefficients of determination (closest to 1).
 
-## Part I - WeatherPy
+<img src="Images/STemp.png" alt="Southern Hemispere Temperature vs Latitude">
+Southern Hemisphere: Temperature vs. Latitude regression is not showing as strong of a relationship between temperature and location as in the northern hemisphere. The r-squared value is 0.28.
 
-In this example, you'll be creating a Python script to visualize the weather of 500+ cities across the world, at varying distances from the equator. To accomplish this, you'll be utilizing a [simple Python library](https://pypi.python.org/pypi/citipy), the [OpenWeatherMap API](https://openweathermap.org/api), and a little common sense to create a representative model of weather across world cities.
+<img src="Images/NHum.png" alt="Northern Hemispere Humidity vs Latitude">
+Northern Hemisphere: Humidity vs. Latitude regression is not showing a strong relationship between location and humidity levels. The r-squared value is 0.13.
 
-The first requirement is to create a series of scatter plots to showcase the following relationships:
+<img src="Images/SHum.png" alt="Southern Hemispere Humidity vs Latitude">
+Southern Hemisphere: Humidity vs. Latitude regression, like for the northern hemisphere, is not showing a strong relationship. The r-squared value is 0.017.
 
-* Temperature (F) vs. Latitude
-* Humidity (%) vs. Latitude
-* Cloudiness (%) vs. Latitude
-* Wind Speed (mph) vs. Latitude
+<img src="Images/NCloud.png" alt="Northern Hemispere Cloud Cover vs Latitude">
+Northern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.015.
 
-After each plot, add a sentence or two explaining what the code is analyzing.
+<img src="Images/SCloud.png" alt="Southern Hemispere Cloud Cover vs Latitude">
+Southern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.087.
 
-The second requirement is to run linear regression on each relationship. This time, separate the plots into Northern Hemisphere (greater than or equal to 0 degrees latitude) and Southern Hemisphere (less than 0 degrees latitude):
+<img src="Images/NWind.png" alt="Northern Hemispere Wind Speed vs Latitude">
+Northern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.015.
 
-* Northern Hemisphere - Temperature (F) vs. Latitude
-* Southern Hemisphere - Temperature (F) vs. Latitude
-* Northern Hemisphere - Humidity (%) vs. Latitude
-* Southern Hemisphere - Humidity (%) vs. Latitude
-* Northern Hemisphere - Cloudiness (%) vs. Latitude
-* Southern Hemisphere - Cloudiness (%) vs. Latitude
-* Northern Hemisphere - Wind Speed (mph) vs. Latitude
-* Southern Hemisphere - Wind Speed (mph) vs. Latitude
+<img src="Images/SWind.png" alt="Southern Hemispere Wind Speed vs Latitude">
+Southern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.065.
 
-After each pair of plots, take the time to explain what the linear regression is modeling. For example, describe any relationships you notice and any other analysis you may have.
+<br />
+<br />
 
-Your final notebook must:
-
-* Randomly select **at least** 500 unique (non-repeat) cities based on latitude and longitude.
-* Perform a weather check on each of the cities using a series of successive API calls.
-* Include a print log of each city as it's being processed with the city number and city name.
-* Save a CSV of all retrieved data and a PNG image for each scatter plot.
-
-## Part II - VacationPy
+# Part II - VacationPy
 
 Now let's use your skills in working with weather data to plan future vacations. Use jupyter-gmaps and the Google Places API for this part of the assignment.
 
@@ -99,6 +102,84 @@ As final considerations:
 ## Hints and Considerations
 
 * The city data you generate is based on random coordinates as well as different query times. As such, your outputs will not be an exact match to the provided starter notebook.
+Jupyter Notebook
+README.md
+2 minutes agoJupyter Notebook
+README.md
+3 minutes ago
+GitHub Flavored Markdown
+File
+Edit
+View
+Language
+1
+# Python API Homework - What's the Weather Like?
+2
+​
+3
+## Background
+4
+​
+5
+Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. So let's take what you've learned about Python requests, APIs, and JSON traversals to answer a fundamental question: "What's the weather like as we approach the equator?"
+6
+​
+7
+Now, we know what you may be thinking: _"Duh. It gets hotter..."_
+8
+​
+9
+But, if pressed, how would you **prove** it?
+10
+​
+11
+![Equator](Images/equatorsign.png)
+12
+​
+13
+### Before You Begin
+14
+​
+15
+1. Create a new repository for this project called `python-api-challenge`. **Do not add this homework to an existing repository**.
+16
+
+GitHub Flavored Markdown
+File
+Edit
+View
+Language
+1
+# Python API Homework - What's the Weather Like?
+2
+​
+3
+## Background
+4
+​
+5
+Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. So let's take what you've learned about Python requests, APIs, and JSON traversals to answer a fundamental question: "What's the weather like as we approach the equator?"
+6
+​
+7
+Now, we know what you may be thinking: _"Duh. It gets hotter..."_
+8
+​
+9
+But, if pressed, how would you **prove** it?
+10
+​
+11
+![Equator](Images/equatorsign.png)
+12
+​
+13
+### Before You Begin
+14
+​
+15
+1. Create a new repository for this project called `python-api-challenge`. **Do not add this homework to an existing repository**.
+16
 
 * If you'd like a refresher on the geographic coordinate system, [this site](http://desktop.arcgis.com/en/arcmap/10.3/guide-books/map-projections/about-geographic-coordinate-systems.htm) has great information.
 
@@ -118,6 +199,4 @@ As final considerations:
 
 * Lastly, remember -- this is a challenging activity. Push yourself! If you complete this task, then you can safely say that you've gained a strong mastery of the core foundations of data analytics and it will only go better from here. Good luck!
 
-### Copyright
 
-Trilogy Education Services © 2020. All Rights Reserved.
