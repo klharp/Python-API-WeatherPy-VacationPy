@@ -12,7 +12,7 @@ This analysis was performed in February 2021, using the OpenWeatherMap API.
 ## Overview
 Develop a Python script to visualize the weather of 500+ randomly chosen cities across the world, at varying distances from the equator. Starter code with a [simple Python library](https://pypi.python.org/pypi/citipy) and the [OpenWeatherMap API](https://openweathermap.org/api) was provided.
 
-* Out of the 617 randomly chosen cities, only 579 were used in the analysis. The remaining were eliminated due to incomplete data.
+* Out of the 629 randomly chosen cities, only 587 were used in the analysis. The remaining were eliminated due to incomplete data.
 
 ## Scatter plots to show any relationships
 
@@ -20,7 +20,7 @@ Develop a Python script to visualize the weather of 500+ randomly chosen cities 
 Temperature vs. Latitude is generally showing that the maximum temperatures are the highest closest to the equator (0). The farther north, the maximum temperatures get colder.
 
 <img src="Images/LatHum.png" alt="Humidity vs Latitude">
-Humidity vs. Latitude is generally showing that humidity levels (100% or less) greatly vary across the globe, though higher humidity levels are the majority (greater than 60%). The northern hemisphere tends to be more humid than the southern.
+Humidity vs. Latitude is generally showing that humidity levels (100% or less) greatly vary across the globe, though higher humidity levels are the majority (greater than 60%), especially in the latitudes between 40 and 70. The northern hemisphere tends to be more humid than the southern.
 
 <img src="Images/LatCloud.png" alt="Cloud Cover vs Latitude">
 Cloud Cover vs. Latitude (cloudiness) is generally showing no relationship between cloud cover and location.
@@ -40,22 +40,22 @@ Northern Hemisphere: Temperature vs. Latitude regression is showing the closer t
 Southern Hemisphere: Temperature vs. Latitude regression is not showing as strong of a relationship between temperature and location as in the northern hemisphere. The r-squared value is 0.28.
 
 <img src="Images/NHum.png" alt="Northern Hemispere Humidity vs Latitude">
-Northern Hemisphere: Humidity vs. Latitude regression is not showing a strong relationship between location and humidity levels. The r-squared value is 0.13.
+Northern Hemisphere: Humidity vs. Latitude regression is not showing a strong relationship between location and humidity levels. The r-squared value is 0.12.
 
 <img src="Images/SHum.png" alt="Southern Hemispere Humidity vs Latitude">
-Southern Hemisphere: Humidity vs. Latitude regression, like for the northern hemisphere, is not showing a strong relationship. The r-squared value is 0.017.
+Southern Hemisphere: Humidity vs. Latitude regression, like for the northern hemisphere, is not showing a strong relationship. The r-squared value is 0.03.
 
 <img src="Images/NCloud.png" alt="Northern Hemispere Cloud Cover vs Latitude">
-Northern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.015.
+Northern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.04.
 
 <img src="Images/SCloud.png" alt="Southern Hemispere Cloud Cover vs Latitude">
-Southern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.087.
+Southern Hemisphere: Cloud Cover (cloudiness) vs. Latitude regression is not showing a strong relationship between location and cloud cover. The r-squared value is 0.11.
 
 <img src="Images/NWind.png" alt="Northern Hemispere Wind Speed vs Latitude">
-Northern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.015.
+Northern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.0004.
 
 <img src="Images/SWind.png" alt="Southern Hemispere Wind Speed vs Latitude">
-Southern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.065.
+Southern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong relationship between location and wind speed. The r-squared value is 0.05.
 
 <br />
 <br />
