@@ -4,23 +4,28 @@
 ## WeatherPy Analysis Summary
 This analysis was performed in February 2021, using the OpenWeatherMap API.
 
+  * There are more representative cities in the northern hemisphere, due to the northern hemisphere having more landmass.
   
-  * Temperatures are the warmest in the cities closest to the equator, with the southern hemisphere being warmer than the northern hemisphere. This may be due to the northern hemisphere having more landmass.
+  * Temperatures are the warmest in the cities closest to the equator, with the southern hemisphere being warmer than the northern hemisphere. 
+
   * The northern hemisphere tends to be more humid than the southern.
-  * There is generally no relationsship location compared with cloud cover (cloudiness) and wind speed. This is verified in the regression analyses.
+  
+  * There is generally no relationship for location compared with cloud cover (cloudiness) and wind speed. This is verified in the regression analyses.
+
+  * Image exports are located in the folder titled, Images and csv exports are located in the folder titled, Resources.
 
 ## Overview
 Develop a Python script to visualize the weather of 500+ randomly chosen cities across the world, at varying distances from the equator. Starter code with a [simple Python library](https://pypi.python.org/pypi/citipy) and the [OpenWeatherMap API](https://openweathermap.org/api) was provided.
 
 * Out of the 625 randomly chosen cities, only 576 were used in the analysis. The remaining were eliminated due to incomplete data.
 
-## Scatter plots to show any relationships
+## Scatter plots to show relationships
 
 <img src="Images/LatTemp.png" alt="Temp vs Latitude">
 Temperature vs. Latitude is generally showing that the maximum temperatures are the highest closest to the equator (0). The farther north, the maximum temperatures get colder.
 
 <img src="Images/LatHum.png" alt="Humidity vs Latitude">
-Humidity vs. Latitude is generally showing that humidity levels (100% or less) greatly vary across the globe, though higher humidity levels are the majority (greater than 60%), especially in the latitudes between 40 and 70. The northern hemisphere tends to be more humid than the southern.
+Humidity vs. Latitude is generally showing that humidity levels (100% or less) greatly vary across the globe, though higher humidity levels are the majority (greater than 60%), especially in the latitudes between 30 and 70. The northern hemisphere tends to be more humid than the southern.
 
 <img src="Images/LatCloud.png" alt="Cloud Cover vs Latitude">
 Cloud Cover vs. Latitude (cloudiness) is generally showing no relationship between cloud cover and location.
@@ -62,11 +67,14 @@ Southern Hemisphere: Wind Speed vs. Latitude regression is not showing a strong 
 
 # Part II - VacationPy
 
-With the data from Part I, a heat map was generated for the 585 cities.
+## Overview
+With the data from Part I, ideal vacation locations were determined using jupyter maps and the Google Places API.
+
+A heat map was generated for the 585 cities. 
 
 <img src="Images/cities.png" alt="Heat Map of Sample Cities">
 
-Data was reduced to include these ideal conditions
+Data was reduced to include these ideal conditions:
 
   * A max temperature lower than 80 degrees but higher than 70.
 
@@ -74,7 +82,7 @@ Data was reduced to include these ideal conditions
 
   * Zero cloud cover (cloudiness).
 
-With these conditions, Google Places API was used to find the first hotel for each city (15) located within 5000 meters of the longitude and latitude of each city.
+With these conditions, Google Places API was used to find the first hotel for each of the 15 cities located within 5000 meters of the city location.
 
-<img src="Images/hotels
+<img src="Images/hotellocations
 .png" alt="Heat Map of Sample Cities">
