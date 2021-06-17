@@ -1,5 +1,21 @@
 # Python API Homework - What's the Weather Like?
 
+## Project Overview
+This project used Python scripting to visualize the weather of 500+ world cities at varying distances from the equator. Project focuses on using APIs to visualize weather across the world.
+
+Languages and libraries used:
+
+* Pandas
+* Numpy
+* Matplotlib
+* SciPy
+* Time
+* OpenWeatherMap API
+* Google Places API
+
+If duplicating/running the Jupyter Notebook for this project, an OpenWeather and Google Place API key will be required and entered in the appropriate config.js file.
+
+---
 
 ## Analysis Summary
 This analysis was performed in February 2021. Data and results will reflect the analysis being performed at this particular time of year.
