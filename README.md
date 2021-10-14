@@ -1,4 +1,4 @@
-# Python API Homework - What's the Weather Like?
+# Python API - What's the Weather Like?
 
 ## Project Overview
 This project used Python scripting to visualize the weather of 500+ world cities at varying distances from the equator. Project focuses on using APIs to visualize weather across the world.
